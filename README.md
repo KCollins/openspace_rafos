@@ -1,8 +1,6 @@
 # openspace-rafos
 Spatial sonification of RAFOS float data. 
 
-<<<<<<< Updated upstream
-"Oceanographic Argo Profiling Float" (https://skfb.ly/pyQYO) by gerardllorach is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 =======
 ## Setup
  - [ ] Install OpenSpace per instructions here:
@@ -16,4 +14,7 @@ Spatial sonification of RAFOS float data.
  - [ ] Navigate to https://kcollins.github.io/openspace-scripts/OpenSpace%20MIDI%20mapping/ , give your browser permission to control MIDI devices, and verify MIDI is connected by hitting "MIDI Channel Detect"
  - [ ] 
 
->>>>>>> Stashed changes
+=======
+## Acknowledgments
+Data courtesy of [Bower Lab](https://www2.whoi.edu/site/bower-lab/), WHOI.
+"Oceanographic Argo Profiling Float" (https://skfb.ly/pyQYO) by gerardllorach is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
