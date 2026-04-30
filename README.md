@@ -1,5 +1,5 @@
 # openspace-rafos
-Visualization and spatial sonification of RAFOS float data in OpenSpace.
+Visualization and spatial sonification of RAFOS float data in OpenSpace. This is a work in progress. Issues and pull requests are encouraged.
 
 ## Visualization in OpenSpace
 ### Getting Started
@@ -13,6 +13,7 @@ Visualization and spatial sonification of RAFOS float data in OpenSpace.
  - [ ] Download RAFOS.profile to your OpenSpace folder. Place it in the user/data/profiles directory.
  - [ ] In the OpenSpace launcher, select RAFOS from the custom profile list.
  - [ ] Drag and drop the .asset and .keyframes files from the Assets/ folder in this repo. These may take a few minutes to load; consider loading them one float at a time.
+ ...or you can move the Asset folder to your data/asset directory under "RAFOS" and run the RAFOS-Sonification profile.
 
 ## Sonification in OpenSpace
 # Sonification Setup
@@ -20,7 +21,10 @@ Visualization and spatial sonification of RAFOS float data in OpenSpace.
   - [ ] Test [OpenSpace sonification examples](https://docs.openspaceproject.com/latest/building-content/modules/telemetry/sonification.html#sonifications-provided-by-openspace)
 
 # Spatial Audification in OpenSpace
-\TODO
+ - [ ] Move all assets in Assets folder of this repo to data/assets/RAFOS. 
+ - [ ] Run RAFOS-Sonification profile.
+ - [ ] Drag-and-drop node asset.
+ - [ ] Run matching Supercollider file (there are a couple of options. All will make noise; at the time of writing, none of them do so usefully.)
 
 
 # MIDI Control
