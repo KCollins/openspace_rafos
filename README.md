@@ -3,7 +3,7 @@ Visualization and spatial sonification of RAFOS float data in OpenSpace. This is
 
 ## Visualization in OpenSpace
 ### Getting Started
- - [ ] Verify that your computer hardware 
+ - [ ] Verify that your computer hardware meets OpenSpace's [requirements](https://docs.openspaceproject.com/releases-v0.20/getting-started/hardware-requirements.html)
  - [ ] Install OpenSpace per instructions here: https://docs.openspaceproject.com/releases-v0.20/getting-started/getting-started/index.html
  - [ ] Run the Getting Started tour.
  - [ ] Join the OpenSpace Slack (cf. www.openspaceproject.com), particularly the #p-oceanography and #sonification channels, to get questions addressed promptly.
