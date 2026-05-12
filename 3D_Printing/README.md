@@ -8,7 +8,6 @@
  - [ ] Install [DEMto3D plugin](https://demto3d.com/en/descarga-e-instalacion/): Download the zip file from Github (On [this page](https://github.com/jawensi/DEMto3D-QGIS-Plugin), click Clone > Download Zip). In QGIS > Plugins > Manage and Install Plugins, click Install From ZIP and select the zip file from your Downloads folder. Once it is installed, a DEM to 3D menu should appear in QGIS under the Raster menu at the verty top of the page.
 
  ## Procedure for Generating STM
- - [ ] Open a basemap using QuickMapServices (ESRI Ocean is a solid choice)
- - [ ] Click the OpenTopography on the task bar and then click the API key
- - [ ] In QGIS: Plugins>Install from Zip, install OpenTopography plugin. (This will create an icon on your top toolbar)
+ - [ ] Open a basemap using QuickMapServices (ESRI Ocean is a solid choice) and zoom in to the area that you want to print.
+ - [ ] Click the OpenTopography icon on the task bar. For Extents, click the button to the right, which will set the lat/lon to the window zoom level. Paste in your API key and click Run. (Once the process has been run once, your key should be saved automatically into QGIS.)
 
