@@ -33,8 +33,9 @@ ___________________________________
 
 ## \TODO
  - [X] We want to print maps of the South Pacific. How do we wrap around the map view in QGIS? Include instructions for this.
- - [ ] Add screenshot and more detailed instructions for using raster calculator; note that there's more than one
+ - [X] Add screenshot and more detailed instructions for using raster calculator; note that there's more than one
  - [X] Add instructions for adding in isobaths
+ - [ ] Figure and document: Converting float data to raster (Processing Toolbox > Raster Tools > Convert map to raster ?)
  - [ ] Figure and document: merge DEMs
  - [ ] Add in RAFOS data (and instructions for symbology)
  - [ ] Figure and document: convert RAFOS tracks to DEMs (and then merge)
