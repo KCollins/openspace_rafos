@@ -11,15 +11,28 @@
  - [ ] Open a basemap using QuickMapServices (ESRI Ocean is a solid choice) and zoom in to the area that you want to print.
  - [ ] In the lower right-hand corner, select the map projection and change it to EPSG:4326-WGS84. This will cause the coordinates to appear in lat/lon, which will make it easier to set extents manually.
  - [ ] Click the OpenTopography icon on the task bar. For Extents, click the button to the right, which will set the lat/lon to the window zoom level (or type in your own as needed). Select a map of your choice; for bathymetry, you'll probably want one of the GEBCO maps. Paste in your API key and click Run. (Once the process has been run once, your key should be saved automatically into QGIS.) This will load a DEM of that region into your project.
- - [ ] If you're printing bathymetric data, you'll need to bring the DEM data above sea level for the 3D print to work well. Go to the Processing menu and open the Raster calculator. Select the DEM you imported before and add an offset slightly greater than whatever the lowest point is. For example, if your bathymetric map bottoms out at -9904 meters, add 10000. 
+ - [ ] If you're printing bathymetric data, you'll need to bring the DEM data above sea level for the 3D print to work well. Open Processing > Processing Toolbox > Raster analysis > Raster Calculator. Open "Input Layers" and select the DEM you imported before ("GEBCOSubIceTopo[Memory][EPSG:4326]", e.g.). Add an offset slightly greater than whatever the lowest point is. For example, if your bathymetric map bottoms out at -9904 meters, add 10000. You can gauge this from the colormap shown in the Layers pane on the bottom left of the screen. Hit "Run" and you should see the appearance of a new layer, titled "Calculated." Select this layer and go to the next step.
  - [ ] Go to Raster > DEM to 3D. It will open a window where you can add your printing specs as shown below. .2mm is a good number for spacing. Once you add the desired width, the scale properties should automatically populate. Vertical exaggeration should probably be higher than you think; an exaggeration of 1x won't show up. Make sure Terrain Inversion is off (unless you are making a stamp).
 
 <img width="1278" height="682" alt="image" src="https://github.com/user-attachments/assets/85712c9b-16e9-4e03-815a-962e616cc7c7" />
+
+
+## Advanced Operations
+### Adding isobaths
+ - [ ] Open the Raster Calculator per above. Use an expression like this one for a -3000 m isobath:
+     ```( "GEBCOSubIceTopo[Memory]@1" >= -3010 AND "GEBCOSubIceTopo[Memory]@1" <= -2990 ) * ("GEBCOSubIceTopo[Memory]@1" + 12000) + ( "GEBCOSubIceTopo[Memory]@1" < -3010 OR "GEBCOSubIceTopo[Memory]@1" > -2990 ) * ("GEBCOSubIceTopo[Memory]@1" + 10000)```
+Depending on the location, you may want to vary the range and how much height you add to the isobath. 
+ - [ ] Generate the STL as above.
+
+### Adding Float Data
+This repository includes example RAFOS data. 
+
 ___________________________________
+
 ## \TODO
  - [X] We want to print maps of the South Pacific. How do we wrap around the map view in QGIS? Include instructions for this.
  - [ ] Add screenshot and more detailed instructions for using raster calculator; note that there's more than one
- - [ ] Add instructions for adding in isobaths
+ - [X] Add instructions for adding in isobaths
  - [ ] Figure and document: merge DEMs
  - [ ] Add in RAFOS data (and instructions for symbology)
  - [ ] Figure and document: convert RAFOS tracks to DEMs (and then merge)
