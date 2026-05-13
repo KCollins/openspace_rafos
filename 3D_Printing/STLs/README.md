@@ -11,7 +11,7 @@ This file includes the Tonga exclusive economic zone (EEZ). We imported the DEM 
 | Max Lon    | -171    |
 
 ## Gulf of Mexico with Isobaths
-There are two files here: one with isobaths and one without. Both were produced using a vertical exaggeration of 20, a height of 20 mm and a base height of 2mm. The isobaths were added with the Raster Calculator using this expression:
+This file was produced using a vertical exaggeration of 20, a height of 20 mm and a base height of 2mm, then simplified using default options in OrcaSlicer. The isobaths were added with the Raster Calculator using this expression:
 ```
 ( ("GEBCOSubIceTopo[Memory]@1" >= -2050 AND "GEBCOSubIceTopo[Memory]@1" <= -1950) OR ("GEBCOSubIceTopo[Memory]@1" >= -3050 AND "GEBCOSubIceTopo[Memory]@1" <= -2950) OR ("GEBCOSubIceTopo[Memory]@1" >= -4050 AND "GEBCOSubIceTopo[Memory]@1" <= -3950) ) * ("GEBCOSubIceTopo[Memory]@1" + 10200)
 + 
