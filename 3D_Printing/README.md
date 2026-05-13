@@ -25,7 +25,9 @@ Depending on the location, you may want to vary the range and how much height yo
  - [ ] Generate the STL as above.
 
 ### Adding Float Data
-This repository includes example RAFOS data. 
+ - [ ] This repository includes example RAFOS data. Download one of the files (rafos1060.csv, e.g.)
+ - [ ] In QGIS, select Layer > Add Layer > Add Delimited Text Layer. This will open the Data Source Manager. To the right of "File Name", click the [...] button and select rafos1060.csv (or equivalent). Set X field to Longitude (W), Y field to Latitude (N). Add the layer to the map.
+ - [ ] In the Layers pane (bottom left), double-click the layer. Under Symbology, select Heatmap. Set Radius to 1 and weight points by Pressure (dbar).
 
 ___________________________________
 
