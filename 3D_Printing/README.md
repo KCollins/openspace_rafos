@@ -1,5 +1,5 @@
 # Making 3D printed DEMs with QGIS
-These instructions were developed for QGIS 4.0.2
+These instructions were developed for QGIS 4.0.2-Norrköping. Later versions may have some interface changes. 
 
 ## Setup
  - [x] Request an API key on opentopography.org. Save the text of the API Key locally; you will need to paste it in later.
