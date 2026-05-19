@@ -32,8 +32,10 @@ Depending on the location, you may want to vary the range and how much height yo
 
 ### Adding Float Data
  - [ ] This repository includes [example RAFOS data](../Data). Download one of the CSV files with a depth column ([rafos1060_depth.csv](../Data/rafos1060_depth.csv), e.g.)
- - [ ] In QGIS, select Layer > Add Layer > Add Delimited Text Layer. This will open the Data Source Manager. To the right of "File Name", click the [...] button and select rafos1060.csv (or equivalent). Set X field to Longitude (W), Y field to Latitude (N). Add the layer to the map.
- - [ ] In the Layers pane (bottom left), double-click the layer. Under Symbology, select Heatmap. Set Radius to 1 and weight points by Pressure (dbar).
+ - [ ] In QGIS, select Layer > Add Layer > Add Delimited Text Layer. This will open the Data Source Manager. To the right of "File Name", click the [...] button and select rafos1060.csv (or equivalent). Set X field to Longitude (W), Y field to Latitude (N). Set both the Z and M fields to Depth (m). Add the layer to the map. It should appear as a set of colored dots on your map.
+ - [ ] In the Layers pane (bottom left), double-click the layer to open the Layer Properties window. Under the Symbology tab, select Simple Marker. Set the stroke color to transparent (Opacity = 0). Click "Apply." The borders should disappear from the colored dots on the map.
+ - [ ] Next we'll set the colormap. In the Symbology window, click the spot that says "Simple Marker" near the top and change it to Graduated. Under the "Value" dropdown, select "Depth (m)." For "Mode", select "Equal Interval" and input under "Classes" how many gradations you want; I picked 10. (If you want to map your gradient more granularly, that's an option here as well.) Click the gradient next to "Color Ramp" and open a new window. Set it from black (Color 1) to white (Color 2) and hit OK. Click "Apply" to check the results; when you've got ones that you're happy with, click OK.
+ - [ ] Select the point layer in the Layers pane. In the Raster menu, select Conversion > Rasterize (Vector to Raster).
 
 ___________________________________
 
