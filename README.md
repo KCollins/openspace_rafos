@@ -19,6 +19,17 @@ Visualization and spatial sonification of RAFOS float data in OpenSpace. This is
 ### Sonification Setup
  - [ ] Install Supercollider and required VST plugins, following the instructions here: https://docs.openspaceproject.com/latest/building-content/modules/telemetry/sonification.html#ambisonics
   - [ ] Test [OpenSpace sonification examples](https://docs.openspaceproject.com/latest/building-content/modules/telemetry/sonification.html#sonifications-provided-by-openspace)
+  - [ ] Test Supercollider sound output with this test script:
+```
+(
+s.boot;
+ SinOsc.ar(440, 0, 0.2) }.play;
+)(
+// To run this example, click the next line of code and press CTRL + ENTER on the keyboard
+// When finished, press CTRL + . on you keyboard simultaneously to stop the sonification
+{ SinOsc.ar(freq: 440, mul: 0.2) }.play;
+)
+```
 
 ### Spatial Audification in OpenSpace
  - [ ] Move all assets in Assets folder of this repo to data/assets/RAFOS. 
