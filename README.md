@@ -16,21 +16,24 @@ Visualization and spatial sonification of RAFOS float data in OpenSpace. This is
  ...or you can move the Asset folder to your data/asset directory under "RAFOS" and run the RAFOS-Sonification profile.
 
 ## Sonification in OpenSpace
-# Sonification Setup
+### Sonification Setup
  - [ ] Install Supercollider and required VST plugins, following the instructions here: https://docs.openspaceproject.com/latest/building-content/modules/telemetry/sonification.html#ambisonics
   - [ ] Test [OpenSpace sonification examples](https://docs.openspaceproject.com/latest/building-content/modules/telemetry/sonification.html#sonifications-provided-by-openspace)
 
-# Spatial Audification in OpenSpace
+### Spatial Audification in OpenSpace
  - [ ] Move all assets in Assets folder of this repo to data/assets/RAFOS. 
  - [ ] Run RAFOS-Sonification profile.
  - [ ] Drag-and-drop node asset.
  - [ ] Run matching Supercollider file (there are a couple of options. All will make noise; at the time of writing, none of them do so usefully.)
 
 
-# MIDI Control
+### MIDI Control
  - [ ] Plug in a MIDI controller and turn it on. (I like the [Synido C16](https://www.synido.com/collections/midi-controllers/products/synido-tempopad-c16-midi-controller-beat-maker-midi-pad))
  - [ ] Navigate to https://kcollins.github.io/openspace-scripts/OpenSpace%20MIDI%20mapping/ , give your browser permission to control MIDI devices, and verify MIDI is connected by hitting "MIDI Channel Detect"
  - [ ] Map MIDI controls according to your preferences. (\TODO: Provide MIDI profile for C16.)
+
+## 3D Printed Digital Elevation Models
+This repository also contains a procedure for creating bathymetric STLs in QGIS. See the [3D_Printing README](3D_Printing/README.md) for more information.
 
 __________________________________________________________________
 ## Acknowledgments
