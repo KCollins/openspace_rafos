@@ -13,6 +13,7 @@ These instructions were developed for QGIS 4.0.2-Norrköping. Later versions may
  - [ ] Open a basemap using QuickMapServices (ESRI Ocean is a solid choice) and zoom in to the area that you want to print.
  - [ ] If you haven't set a default CRS: In the lower right-hand corner, select the map projection and change it to EPSG:4326-WGS84. This will cause the coordinates to appear in lat/lon, which will make it easier to set extents manually.
  - [ ] Click the OpenTopography icon on the task bar. For Extents, click the button to the right, which will set the lat/lon to the window zoom level (or type in your own as needed). Select a map of your choice; for bathymetry, you'll probably want one of the GEBCO maps. Paste in your API key and click Run. (Once the process has been run once, your key should be saved automatically into QGIS.) This will load a DEM of that region into your project.
+ - [ ] If you're including float data, follow the instructions below.
  - [ ] If you're printing bathymetric data, you'll need to bring the DEM data above sea level for the 3D print to work well. Open Processing > Processing Toolbox > Raster analysis > Raster Calculator. Open "Input Layers" and select the DEM you imported before ("GEBCOSubIceTopo[Memory][EPSG:4326]", e.g.). If you want to flatten features above sea level, you'll need an expression like this: `("GEBCOSubIceTopo[Memory]@1" < 0) * "GEBCOSubIceTopo[Memory]@1"`. Next, add an offset slightly greater than whatever the lowest point is. For example, if your bathymetric map bottoms out at -9904 meters, add 10000. You can gauge this from the colormap shown in the Layers pane on the bottom left of the screen. You can do both of these in one smooth motion:
 ```
 ("GEBCOSubIceTopo[Memory]@1" < 0) * "GEBCOSubIceTopo[Memory]@1" +10000
@@ -33,15 +34,15 @@ Depending on the location, you may want to vary the range and how much height yo
 ### Adding Float Data
  - [ ] This repository includes [example RAFOS data](../Data). Download one of the CSV files with a depth column ([rafos1060_depth.csv](../Data/rafos1060_depth.csv), e.g.)
  - [ ] In QGIS, select Layer > Add Layer > Add Delimited Text Layer. This will open the Data Source Manager. To the right of "File Name", click the [...] button and select rafos1060.csv (or equivalent). Set X field to Longitude (W), Y field to Latitude (N). Set both the Z and M fields to Depth (m). Add the layer to the map. It should appear as a set of colored dots on your map.
- - [ ] In the Layers pane (bottom left), double-click the layer to open the Layer Properties window. Under the Symbology tab, select Simple Marker. Set the stroke color to transparent (Opacity = 0). Click "Apply." The borders should disappear from the colored dots on the map.
- - [ ] Next we'll set the colormap. In the Symbology window, click the spot that says "Simple Marker" near the top and change it to Graduated. Under the "Value" dropdown, select "Depth (m)." For "Mode", select "Equal Interval" and input under "Classes" how many gradations you want; I picked 10. (If you want to map your gradient more granularly, that's an option here as well.) Click the gradient next to "Color Ramp" and open a new window. Set it from black (Color 1) to white (Color 2) and hit OK. Click "Apply" to check the results; when you've got ones that you're happy with, click OK.
- - [ ] Select the point layer in the Layers pane. In the Raster menu, select Conversion > Rasterize (Vector to Raster).
+ - [ ] In the Layers pane (bottom left), select the new layer. At the top of the window, select Vector > Geoprocessing Tools > Buffer. This will open a new window. Set the Distance variable to about .05 degrees (might vary based on the size of your map). Hit "Run." This will create a new layer, "Buffered," that sets the apparent size of the points when we add them to our DEM, so think about how thick you want the line to be relative to the other features. When you have a point size that you're happy with, close this window.
+ - [ ] Right-click the original bathymetric layer in the Layers pane and select Export > Save As. Select GeoTIFF and pick a spot for the file to go. We'll need this to exist as a saved file on the computer in order to perform the next set of calculations. It should automatically add this new layer to your project map.
+ - [ ] Right-click the Buffered layer and select Export > Save Features As. This needs to exist as a separate saved file for the same reason.
+ - [ ] With our files saved, it's time to merge the layers. Open Processing Toolbox > GDAL > Vector conversion > Rasterize (overwrite with attribute). Select your geopackage file as your input vector layer, and your saved map file as your input raster layer. (Note that what we're about to do will overwrite your saved DEM file.) Under "Field to use for burn in value," select Depth. The example data uses negative values for depth, so we do *not* want to check the box that says "Add burn in values to existing raster values" if you want the float data to print embossed above the rest of the map. (If you just want engraved lines in your map where the floats were, though, feel free to check this box.)
+
+Once you've completed these steps, save your project and continue with the steps above.
 
 ___________________________________
 
-## \TODO
- - [ ] Figure and document: Converting float data to raster (Processing Toolbox > Raster Tools > Convert map to raster ?)
- - [ ] Figure and document: merge DEMs
- - [ ] Add in RAFOS data (and instructions for symbology)
- - [ ] Figure and document: convert RAFOS tracks to DEMs (and then merge)
+<img width="1562" height="802" alt="image" src="https://github.com/user-attachments/assets/b6b37ff1-ce83-4b4f-99d8-b8e492de33cc" />
+
 
