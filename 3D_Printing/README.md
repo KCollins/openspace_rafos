@@ -1,5 +1,5 @@
 # Making 3D printed DEMs with QGIS
-These instructions were developed for QGIS 4.0.2-Norrköping. Later versions may have some interface changes. 
+These instructions were developed for QGIS 4.0.2-Norrköping. Later versions may have some interface changes. These are written with bathymetric maps in mind.
 
 ## Setup
  - [x] Request an API key on opentopography.org. Save the text of the API Key locally; you will need to paste it in later.
@@ -13,7 +13,11 @@ These instructions were developed for QGIS 4.0.2-Norrköping. Later versions may
  - [ ] Open a basemap using QuickMapServices (ESRI Ocean is a solid choice) and zoom in to the area that you want to print.
  - [ ] If you haven't set a default CRS: In the lower right-hand corner, select the map projection and change it to EPSG:4326-WGS84. This will cause the coordinates to appear in lat/lon, which will make it easier to set extents manually.
  - [ ] Click the OpenTopography icon on the task bar. For Extents, click the button to the right, which will set the lat/lon to the window zoom level (or type in your own as needed). Select a map of your choice; for bathymetry, you'll probably want one of the GEBCO maps. Paste in your API key and click Run. (Once the process has been run once, your key should be saved automatically into QGIS.) This will load a DEM of that region into your project.
- - [ ] If you're printing bathymetric data, you'll need to bring the DEM data above sea level for the 3D print to work well. Open Processing > Processing Toolbox > Raster analysis > Raster Calculator. Open "Input Layers" and select the DEM you imported before ("GEBCOSubIceTopo[Memory][EPSG:4326]", e.g.). Add an offset slightly greater than whatever the lowest point is. For example, if your bathymetric map bottoms out at -9904 meters, add 10000. You can gauge this from the colormap shown in the Layers pane on the bottom left of the screen. Hit "Run" and you should see the appearance of a new layer, titled "Calculated." Select this layer and go to the next step.
+ - [ ] If you're printing bathymetric data, you'll need to bring the DEM data above sea level for the 3D print to work well. Open Processing > Processing Toolbox > Raster analysis > Raster Calculator. Open "Input Layers" and select the DEM you imported before ("GEBCOSubIceTopo[Memory][EPSG:4326]", e.g.). If you want to flatten features above sea level, you'll need an expression like this: `("GEBCOSubIceTopo[Memory]@1" < 0) * "GEBCOSubIceTopo[Memory]@1"`. Next, add an offset slightly greater than whatever the lowest point is. For example, if your bathymetric map bottoms out at -9904 meters, add 10000. You can gauge this from the colormap shown in the Layers pane on the bottom left of the screen. You can do both of these in one smooth motion:
+```
+("GEBCOSubIceTopo[Memory]@1" < 0) * "GEBCOSubIceTopo[Memory]@1" +10000
+```
+Hit "Run" and you should see the appearance of a new layer, titled "Calculated." Select this layer and go to the next step.
  - [ ] Go to Raster > DEM to 3D. It will open a window where you can add your printing specs as shown below. .2mm is a good number for spacing. Once you add the desired width, the scale properties should automatically populate. Vertical exaggeration should probably be higher than you think; an exaggeration of 1x won't show up. Make sure Terrain Inversion is off (unless you are making a stamp).
 
 <img width="1278" height="682" alt="image" src="https://github.com/user-attachments/assets/85712c9b-16e9-4e03-815a-962e616cc7c7" />
