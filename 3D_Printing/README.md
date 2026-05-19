@@ -21,7 +21,7 @@ These instructions were developed for QGIS 4.0.2-Norrköping. Later versions may
 Hit "Run" and you should see the appearance of a new layer, titled "Calculated." Select this layer and go to the next step.
  - [ ] Go to Raster > DEM to 3D. It will open a window where you can add your printing specs as shown below. .2mm is a good number for spacing. Once you add the desired width, the scale properties should automatically populate. Vertical exaggeration should probably be higher than you think; an exaggeration of 1x won't show up. Make sure Terrain Inversion is off (unless you are making a stamp).
 
-<img width="1278" height="682" alt="image" src="https://github.com/user-attachments/assets/85712c9b-16e9-4e03-815a-962e616cc7c7" />
+<img width="1278" height="682" alt="Screenshot of DEM window in QGIS with example settings." src="https://github.com/user-attachments/assets/85712c9b-16e9-4e03-815a-962e616cc7c7" />
 
 
 ## Advanced Operations
@@ -43,6 +43,6 @@ Once you've completed these steps, save your project and continue with the steps
 
 ___________________________________
 
-<img width="1562" height="802" alt="image" src="https://github.com/user-attachments/assets/b6b37ff1-ce83-4b4f-99d8-b8e492de33cc" />
+<img width="1562" height="802" alt="Screenshot of rendered 3D file showing RAFOS 1060 float track in relatively low resolution." src="https://github.com/user-attachments/assets/b6b37ff1-ce83-4b4f-99d8-b8e492de33cc" />
 
 
